@@ -24,7 +24,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t midhula17/frontend-deployment:${{ github.sha }} .
+          docker build -t midhula17/frontend-deployment:${{ github.sha }} ./frontend
           docker tag midhula17/frontend-deployment:${{ github.sha }} midhula17/frontend-deployment:latest
 
       - name: Push Docker Images
