@@ -1,0 +1,117 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.pageHeader {
+  background: linear-gradient(135deg, #2d5016 0%, #4a7c2c 100%);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.pageHeader h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+}
+
+.pageHeader p {
+  opacity: 0.85;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.updateBadge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  width: 100%;
+}
+
+.priceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.priceCard {
+  background: white;
+  padding: 1.8rem 1.5rem;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  transition: all 0.3s;
+  border: 1px solid #f0f0f0;
+  border-top: 4px solid #a8d08d;
+}
+
+.priceCard.up { border-top-color: #4caf50; }
+.priceCard.down { border-top-color: #f44336; }
+
+.priceCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.icon {
+  font-size: 2.5rem;
+}
+
+.trendBadge {
+  padding: 0.3rem 0.7rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.trendUp { background: #e8f5e9; color: #2e7d32; }
+.trendDown { background: #ffebee; color: #c62828; }
+
+.priceCard h3 {
+  color: #2d5016;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 2.4rem;
+  color: #ff6b35;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.unit {
+  color: #999;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.marketRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #666;
+  font-size: 0.85rem;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 0.8rem;
+}

@@ -1,0 +1,150 @@
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 3rem;
+}
+
+.pageHeader {
+  background: linear-gradient(135deg, #2d5016 0%, #4a7c2c 100%);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin: 0 -2rem 3rem;
+}
+
+.pageHeader h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.4rem;
+}
+
+.pageHeader p {
+  opacity: 0.85;
+  font-size: 1rem;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.tabs button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2.5rem;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.25s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.tabs button:hover {
+  border-color: #4a7c2c;
+}
+
+.tabs button.active {
+  background: linear-gradient(135deg, #2d5016, #4a7c2c);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(45,80,22,0.35);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  padding: 1.8rem;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  transition: all 0.3s;
+  border: 1px solid #f0f0f0;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(45,80,22,0.15);
+  border-color: #a8d08d;
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.itemIcon {
+  font-size: 2rem;
+  width: 52px;
+  height: 52px;
+  background: #f5f5f5;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cardTop h3 {
+  color: #2d5016;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.typeBadge {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.infoRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.infoBox {
+  background: #f9f9f9;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+}
+
+.infoBox small {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #999;
+  margin-bottom: 0.2rem;
+}
+
+.infoBox p {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.desc {
+  color: #666;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 0.8rem;
+}

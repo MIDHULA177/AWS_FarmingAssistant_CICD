@@ -1,0 +1,82 @@
+.navbar {
+  background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(45,80,22,0.3);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 68px;
+}
+
+.logo {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo::before {
+  content: '🌾';
+  font-size: 1.4rem;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.navLinks a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.navLinks a:hover {
+  color: white;
+  background: rgba(255,255,255,0.15);
+}
+
+.navLinks a.active {
+  color: white;
+  background: rgba(255,255,255,0.2);
+}
+
+.logoutBtn {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.logoutBtn:hover {
+  background: white;
+  color: var(--green-dark);
+  border-color: white;
+}

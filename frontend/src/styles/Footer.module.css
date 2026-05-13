@@ -1,0 +1,65 @@
+.footer {
+  background: linear-gradient(135deg, var(--green-dark) 0%, #1a3009 100%);
+  color: white;
+  padding: 3rem 0 1.5rem;
+  margin-top: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.brand h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+}
+
+.brand p {
+  opacity: 0.75;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.col h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.6;
+  margin-bottom: 1rem;
+}
+
+.col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.col ul a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.col ul a:hover {
+  color: var(--green-light);
+}
+
+.bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1.5rem;
+  text-align: center;
+  opacity: 0.6;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --green-dark: #2d5016;
+  --green-mid: #4a7c2c;
+  --green-light: #a8d08d;
+  --green-pale: #e8f5e9;
+  --orange: #ff6b35;
+  --white: #ffffff;
+  --gray-100: #f5f7f5;
+  --gray-200: #e8ede8;
+  --gray-500: #666;
+  --gray-700: #333;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.18);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: var(--gray-100);
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--gray-200);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--green-mid);
+  border-radius: 3px;
+}

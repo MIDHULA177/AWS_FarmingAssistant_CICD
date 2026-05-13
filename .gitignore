@@ -1,0 +1,20 @@
+# Environment files - NEVER commit these
+.env
+backend/.env
+frontend/.env.local
+
+# Dependencies
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Next.js build
+frontend/.next/
+
+# Logs
+npm-debug.log*
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
