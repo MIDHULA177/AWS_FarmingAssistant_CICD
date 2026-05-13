@@ -31,3 +31,4 @@ jobs:
         run: |
           docker push midhula17/frontend-deployment:${{ github.sha }}
           docker push midhula17/frontend-deployment:latest
+ 
