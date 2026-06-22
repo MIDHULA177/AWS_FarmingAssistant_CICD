@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// Root route
+app.get('/', (req, res) => res.send('Welcome to KrishiAI - AI Powered Farming Assistant for Farmers'));
+
 // Health check
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
