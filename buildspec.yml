@@ -1,0 +1,71 @@
+version: 0.2
+
+env:
+  variables:
+    AWS_REGION: ap-south-1
+    BACKEND_REPO: kerala-farmer-backend
+    FRONTEND_REPO: kerala-farmer-frontend
+  parameter-store:
+    MONGO_URI: /kerala-farmer/MONGO_URI
+    JWT_SECRET: /kerala-farmer/JWT_SECRET
+    WEATHER_API_KEY: /kerala-farmer/WEATHER_API_KEY
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+      - BACKEND_IMAGE=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$BACKEND_REPO
+      - FRONTEND_IMAGE=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$FRONTEND_REPO
+      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c1-8)
+      - echo Image tag is $IMAGE_TAG
+
+  build:
+    commands:
+      - echo Building backend Docker image...
+      - docker build -t $BACKEND_IMAGE:$IMAGE_TAG -t $BACKEND_IMAGE:latest ./backend
+
+      - echo Building frontend Docker image...
+      - docker build
+          --build-arg NEXT_PUBLIC_BACKEND_URL=http://$ALB_DNS_NAME
+          -t $FRONTEND_IMAGE:$IMAGE_TAG
+          -t $FRONTEND_IMAGE:latest
+          ./frontend
+
+  post_build:
+    commands:
+      - echo Pushing images to ECR...
+      - docker push $BACKEND_IMAGE:$IMAGE_TAG
+      - docker push $BACKEND_IMAGE:latest
+      - docker push $FRONTEND_IMAGE:$IMAGE_TAG
+      - docker push $FRONTEND_IMAGE:latest
+
+      - echo Updating task definition with new image URIs...
+      - sed -i "s|<AWS_ACCOUNT_ID>|$AWS_ACCOUNT_ID|g" ecs-task-definition.json
+      - sed -i "s|<ALB_DNS_NAME>|$ALB_DNS_NAME|g" ecs-task-definition.json
+      - sed -i "s|kerala-farmer-backend:latest|kerala-farmer-backend:$IMAGE_TAG|g" ecs-task-definition.json
+      - sed -i "s|kerala-farmer-frontend:latest|kerala-farmer-frontend:$IMAGE_TAG|g" ecs-task-definition.json
+
+      - echo Registering new task definition...
+      - TASK_DEF_ARN=$(aws ecs register-task-definition --cli-input-json file://ecs-task-definition.json --query taskDefinition.taskDefinitionArn --output text)
+      - echo Task definition ARN is $TASK_DEF_ARN
+
+      - echo Updating appspec with task definition ARN...
+      - sed -i "s|<TASK_DEFINITION_ARN>|$TASK_DEF_ARN|g" appspec.yml
+
+      - echo Writing imagedefinitions.json...
+      - |
+        printf '[
+          {"name":"kerala-farmer-backend","imageUri":"%s"},
+          {"name":"kerala-farmer-frontend","imageUri":"%s"}
+        ]' $BACKEND_IMAGE:$IMAGE_TAG $FRONTEND_IMAGE:$IMAGE_TAG > imagedefinitions.json
+
+artifacts:
+  files:
+    - imagedefinitions.json
+    - appspec.yml
+    - ecs-task-definition.json
+
+cache:
+  paths:
+    - /root/.npm/**/*

@@ -1,0 +1,248 @@
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.leftPanel {
+  flex: 1;
+  background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 60%, #6aaa3a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.leftPanel::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  top: -100px;
+  right: -100px;
+}
+
+.leftPanel::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  bottom: -50px;
+  left: -50px;
+}
+
+.slideContent {
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+  animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.slideContent h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.malayalamMeaning {
+  font-size: 1rem;
+  opacity: 0.75;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+
+.slideContent h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0.8rem 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.rightPanel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-100);
+}
+
+.formContainer {
+  background: white;
+  padding: 3rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 420px;
+  animation: slideInRight 0.8s ease-out;
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.formContainer h2 {
+  color: var(--green-dark);
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--gray-500);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.formContainer input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  transition: border 0.2s;
+  font-family: inherit;
+}
+
+.formContainer input:focus {
+  outline: none;
+  border-color: var(--green-mid);
+}
+
+.formContainer button[type='submit'] {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 0.5rem;
+  font-family: inherit;
+}
+
+.formContainer button[type='submit']:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45,80,22,0.35);
+}
+
+.formContainer button[type='submit']:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.toggle {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--gray-500);
+  font-size: 0.9rem;
+}
+
+.toggle span {
+  color: var(--green-dark);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.toggle span:hover {
+  text-decoration: underline;
+}
+
+/* Popup */
+.popupOverlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popupCard {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 3rem;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  min-width: 300px;
+  animation: slideInRight 0.3s ease-out;
+}
+
+.popupIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.popupMessage {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.popupSuccess {
+  color: var(--green-dark);
+}
+
+.popupError {
+  color: #c62828;
+}
+
+.popupBtn {
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: white;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.popupBtnSuccess {
+  background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+}
+
+.popupBtnSuccess:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45, 80, 22, 0.35);
+}
+
+.popupBtnError {
+  background: #e53935;
+}
+
+.popupBtnError:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(229, 57, 53, 0.35);
+}

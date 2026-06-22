@@ -1,0 +1,144 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.pageHeader {
+  background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.pageHeader h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.pageHeader p {
+  opacity: 0.85;
+  font-size: 1rem;
+}
+
+.main {
+  flex: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.uploadSection {
+  margin: 2rem 0;
+}
+
+.uploadBox {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: 320px;
+  margin: 0 auto 2rem;
+  border: 3px dashed var(--green-light);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s;
+  background: white;
+}
+
+.uploadBox:hover {
+  border-color: var(--green-mid);
+  background: var(--green-pale);
+}
+
+.uploadBox input {
+  display: none;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+}
+
+.placeholder span {
+  font-size: 4rem;
+}
+
+.placeholder p {
+  color: var(--gray-500);
+  font-size: 1rem;
+}
+
+.preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.analyzeBtn {
+  padding: 1rem 3rem;
+  background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(45,80,22,0.3);
+}
+
+.analyzeBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(45,80,22,0.4);
+}
+
+.analyzeBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.result {
+  margin-top: 3rem;
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.result h2 {
+  color: var(--green-dark);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.resultCard {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  text-align: left;
+  border-top: 4px solid var(--green-mid);
+}
+
+.resultCard p {
+  margin: 0.8rem 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.resultCard strong {
+  color: var(--green-dark);
+}

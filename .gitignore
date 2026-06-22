@@ -1,0 +1,56 @@
+# Environment files - NEVER commit these
+.env
+.env.*
+.env.local
+.env.development
+.env.production
+.env.staging
+backend/.env
+frontend/.env.local
+frontend/.env*.local
+
+# Dependencies
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Next.js build
+frontend/.next/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.h5
+*.pkl
+ml-model/
+
+# Build outputs
+dist/
+build/
+
+# Secret / key files
+*.pem
+*.key
+*.p12
+*.pfx
+*.cert
+*.cer
+secrets/
+credentials/
+
+# JWT / API token files
+jwt_secret*
+api_keys*
+
+# Logs
+npm-debug.log*
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
